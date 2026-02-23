@@ -11,26 +11,29 @@ export type Config = {
   currentUserName: string;
 };
 
-
-export function readConfig() : Config {
-    const data = fs.readFileSync(getConfigFilePath(), "utf-8")
-    const raw = JSON.parse(data)
-    return {
-        dbUrl: raw.db_url,
-        currentUserName: raw.current_user_name
-    }
+export function readConfig(): Config {
+  const data = fs.readFileSync(getConfigFilePath(), "utf-8");
+  const raw = JSON.parse(data);
+  return {
+    dbUrl: raw.db_url,
+    currentUserName: raw.current_user_name,
+  };
 }
 
 function writeConfig(config: Config) {
-    const data = JSON.stringify({
-        db_url: config.dbUrl,
-        current_user_name: config.currentUserName
-    }, null, 2)
-    fs.writeFileSync(getConfigFilePath(), data, "utf-8")
+  const data = JSON.stringify(
+    {
+      db_url: config.dbUrl,
+      current_user_name: config.currentUserName,
+    },
+    null,
+    2,
+  );
+  fs.writeFileSync(getConfigFilePath(), data, "utf-8");
 }
 
-export function setUser (userName: string) {
-    const config = readConfig()
-    config.currentUserName = userName
-    writeConfig(config)
+export function setUser(userName: string) {
+  const config = readConfig();
+  config.currentUserName = userName;
+  writeConfig(config);
 }

@@ -25,7 +25,7 @@ export async function handlerFollow(
   }
   const feedFollow = await createFeedFollow(user.id, feed.id);
   console.log(`Feed follow created:`);
-    printFeedFollow(feedFollow.userName, feedFollow.feedName);
+  printFeedFollow(feedFollow.userName, feedFollow.feedName);
 }
 
 export async function handlerFollowing(
@@ -34,15 +34,15 @@ export async function handlerFollowing(
   ...args: string[]
 ) {
   const feedFollows = await getFeedFollowsForUser(user.id);
-if (feedFollows.length === 0) {
-  console.log(`No feed follows found for this user.`);
-  return;
-}
-console.log(`Feed follows for user %s:`, user.id);
+  if (feedFollows.length === 0) {
+    console.log(`No feed follows found for this user.`);
+    return;
+  }
+  console.log(`Feed follows for user %s:`, user.id);
 
- for (const ff of feedFollows) {
-  console.log(`* %s`, ff.feedName); 
-}
+  for (const ff of feedFollows) {
+    console.log(`* %s`, ff.feedName);
+  }
 }
 
 export async function handlerUnfollow(

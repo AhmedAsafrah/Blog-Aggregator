@@ -5,3 +5,4 @@ CREATE TABLE "users" (
 	"name" text NOT NULL,
 	CONSTRAINT "users_name_unique" UNIQUE("name")
 );
+

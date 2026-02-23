@@ -48,12 +48,8 @@
           "name": "feed_follows_user_id_users_id_fk",
           "tableFrom": "feed_follows",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
@@ -61,12 +57,8 @@
           "name": "feed_follows_feed_id_feeds_id_fk",
           "tableFrom": "feed_follows",
           "tableTo": "feeds",
-          "columnsFrom": [
-            "feed_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["feed_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -76,10 +68,7 @@
         "feed_follows_user_id_feed_id_unique": {
           "name": "feed_follows_user_id_feed_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_id",
-            "feed_id"
-          ]
+          "columns": ["user_id", "feed_id"]
         }
       },
       "policies": {},
@@ -136,12 +125,8 @@
           "name": "feeds_user_id_users_id_fk",
           "tableFrom": "feeds",
           "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -151,9 +136,7 @@
         "feeds_url_unique": {
           "name": "feeds_url_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "url"
-          ]
+          "columns": ["url"]
         }
       },
       "policies": {},
@@ -199,9 +182,7 @@
         "users_name_unique": {
           "name": "users_name_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "name"
-          ]
+          "columns": ["name"]
         }
       },
       "policies": {},

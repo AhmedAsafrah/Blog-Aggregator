@@ -4,7 +4,7 @@ import { Feed, feeds, User } from "../schema";
 import { getUser } from "./users";
 import { eq } from "drizzle-orm";
 import { createFeedFollow } from "./feed-follows";
-import {middlewareLoggedIn} from "src/middleware";
+import { middlewareLoggedIn } from "src/middleware";
 
 export async function addFeed(cmdName: string, ...args: string[]) {
   const user = readConfig().currentUserName;
@@ -28,9 +28,9 @@ export async function addFeed(cmdName: string, ...args: string[]) {
       userId: currentUser.id,
     })
     .returning();
-    const feedFollow = await createFeedFollow(currentUser.id, feed.id);
-    console.log(feedFollow.feedName);
-    console.log(feedFollow.userName);
+  const feedFollow = await createFeedFollow(currentUser.id, feed.id);
+  console.log(feedFollow.feedName);
+  console.log(feedFollow.userName);
 }
 
 export function printFeed(feed: Feed, user: User) {
@@ -42,8 +42,8 @@ export function printFeed(feed: Feed, user: User) {
 }
 
 export async function getFeeds() {
-    const allFeeds = await db.select().from(feeds);
-    return allFeeds;
+  const allFeeds = await db.select().from(feeds);
+  return allFeeds;
 }
 
 export async function getFeedByUrl(url: string) {

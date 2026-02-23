@@ -7,18 +7,18 @@ export async function createUser(name: string) {
   return result;
 }
 
-export async function getUser(name:string) {
-    const [user] = await db.select().from(users).where(eq(users.name, name));
-    return user;
+export async function getUser(name: string) {
+  const [user] = await db.select().from(users).where(eq(users.name, name));
+  return user;
 }
 
 export async function deleteUsers() {
-    await db.delete(users).execute();
+  await db.delete(users).execute();
 }
 
 export async function getUsers() {
-    const allUsers = await db.select().from(users);
-    return allUsers;
+  const allUsers = await db.select().from(users);
+  return allUsers;
 }
 
 export async function getUserById(id: string) {
